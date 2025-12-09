@@ -2,89 +2,83 @@
 import { Link } from "react-router-dom";
 
 function StaffDashboard() {
-
-    const cards = [
-        {
-            title: "Doctor Appointments", 
-            description: "View and manage upcooming appointments",
-            borderColor: "border-blue-600",
-            textColor: "text-blue-600"
-        },
-
-        {
-            title: "Check-in Patients",
-            description: "Access patient record securly",
-            borderColor: "border-color-600",
-            textColor: "text-color=600"
-        },
-
-        {
-            title: "Staff Management",
-            description: "Manage staff schedule and tasks",
-            boderColor: "border-color-600",
-            textColor: "text-color-600"
-        },
-
-        {
-            title: "Billing & Payments",
-            description: "Managing billing information and payment process",
-            boderColor: "border-color-600",
-            textColor: "text-color-600"
-        },
-
-        {
-            title: "Report & Analysis",
-            description: "View and analysis hospital performance analysis",
-            boderColor: "border-color-600",
-            textColor: "text-color-600"
-        },
-
-        {
-            title: "Profile and Setting",
-            description: "Manage account settings and preferences",
-            boderColor: "border-color-600",
-            textColor: "text-color-600"
-        },
-
-        {
-            title: "Patint Registration",
-            description: "Fill out and submit patient information",
-            boderColor: "border-color-600",
-            textColor: "text-color-600",
-            link: "/PatientReg"
-        },
-
-        {
-            title: "Medicine/Farmacy Section",
-            description: "Manage meditation and prescription",
-            boderColor: "border-color-600",
-            textColor: "text-color-600"
-        },
-
-        {
-            title: "Hospital",
-            description: "View and analysis hospital performance metrics",
-            boderColor: "border-color-600",
-            textColor: "text-color-600"
-        }
-    ]
-
+  const cards = [
+    {
+      title: "Doctor Appointments",
+      description: "View and manage upcoming appointments",
+      borderColor: "border-blue-600",
+      textColor: "text-blue-600",
+    },
+    {
+      title: "Check-in Patients",
+      description: "Access patient records securely",
+      borderColor: "border-green-600",
+      textColor: "text-green-600",
+    },
+    {
+      title: "Staff Management",
+      description: "Manage staff schedules and tasks",
+      borderColor: "border-purple-600",
+      textColor: "text-purple-600",
+    },
+    {
+      title: "Billing & Payments",
+      description: "Manage billing and payment processing",
+      borderColor: "border-orange-600",
+      textColor: "text-orange-600",
+    },
+    {
+      title: "Reports & Analysis",
+      description: "Analyze performance and hospital reports",
+      borderColor: "border-red-600",
+      textColor: "text-red-600",
+    },
+    {
+      title: "Profile & Settings",
+      description: "Manage account settings and preferences",
+      borderColor: "border-yellow-600",
+      textColor: "text-yellow-600",
+    },
+    {
+      title: "Patient Registration",
+      description: "Fill out and submit patient information",
+      borderColor: "border-teal-600",
+      textColor: "text-teal-600",
+      link: "/PatientReg",
+    },
+    {
+      title: "Medicine / Pharmacy",
+      description: "Manage medication and prescriptions",
+      borderColor: "border-indigo-600",
+      textColor: "text-indigo-600",
+    },
+    {
+      title: "Hospital Overview",
+      description: "View overall hospital performance metrics",
+      borderColor: "border-pink-600",
+      textColor: "text-pink-600",
+    },
+  ];
 
   return (
-    <div className="p-10">
-      <h1 className="text-3xl font-bold mb-6">Staff Dashboard</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="p-10 min-h-screen bg-gray-100">
+      <h1 className="text-4xl font-bold mb-10 text-gray-800">
+        Staff Dashboard
+      </h1>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {cards.map((card) => (
-            <Link 
-                key={card.title}
-                to={card.link}
-                className="`${card.color} text-white p-6 rounded-lg shadow-lg flex item-center hover:scale-105 transition-transform`"
-            >
-                <h2 className="text-xl font-bold">{card.title}</h2>
-            </Link>
-        ))
-            
-        }
+          <Link
+            key={card.title}
+            to={card.link || "#"}
+            className={`border ${card.borderColor} bg-white rounded-xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all`}
+          >
+            <h2 className={`text-2xl font-semibold mb-2 ${card.textColor}`}>
+              {card.title}
+            </h2>
+            <p className="text-gray-600">{card.description}</p>
+          </Link>
+        ))}
       </div>
     </div>
   );
