@@ -16,10 +16,10 @@ function PatientReg() {
 
       <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
         <h2 className="text-2xl font-bold text-center text-red-800 mb-6">
-          Simple Form
+          Registration Form
         </h2>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-3 text-left">
 
           <div>
             <label className="block mb-1 font-medium">Full Name:</label>
@@ -54,12 +54,13 @@ function PatientReg() {
           </div>
 
           <div>
-            <label> Current Meditation </label>
+            <label className="block mb-1 font-medium"> Current Meditation </label>
             <input
               type="text"
               placeholder="enter your current meditation and your allergies"
               value={CurrentMeditation}
-              onChange={(e) => setCurrentMeditation(e.target.value)}></input>
+              onChange={(e) => setCurrentMeditation(e.target.value)}
+              className="w-full border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"/>
           </div>
 
           <button

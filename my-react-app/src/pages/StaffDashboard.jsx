@@ -8,18 +8,21 @@ function StaffDashboard() {
       description: "View and manage upcoming appointments",
       borderColor: "border-blue-600",
       textColor: "text-blue-600",
+      link: "/Appointment",
     },
     {
       title: "Check-in Patients",
       description: "Access patient records securely",
       borderColor: "border-green-600",
       textColor: "text-green-600",
+      link: "/SearchPatient",
     },
     {
       title: "Staff Management",
       description: "Manage staff schedules and tasks",
       borderColor: "border-purple-600",
       textColor: "text-purple-600",
+      link: "/PatientDetails",
     },
     {
       title: "Billing & Payments",

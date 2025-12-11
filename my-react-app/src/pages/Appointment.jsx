@@ -61,11 +61,76 @@ function Appointment(){
                         className="w-full border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
                         required
                         >
-                            <option value="">-- Choose Doctor --</option>
-                            <option value="Dr.nimal"></option>
-                            <option value="Dr.saman"></option>
+                            <option value="">-- Select Hospital --</option>
+                            <option value="Colombo General Hospital">Colombo General Hospital</option>
+                            <option value="Kandy Hospital">Kandy Hospital</option>
                         </select>
                     </div>
+
+                    <div>
+                        <label className="block font-medium mb-1">Doctor</label>
+                        <select 
+                        type="text"
+                        name="Doctor"
+                        placeholder="select Doctor"
+                        value={formData.doctor}
+                        onChange={handleChange}
+                        className="w-full border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
+                        required
+                        >
+                            <option value="">-- Choose Doctor --</option>
+                            <option value="Dr.Nimal">Dr. Nimal</option>
+                            <option value="Dr.Saman">Dr. Saman</option>
+                            <option value="Dr.Kamal">Dr. Kamal</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label className="block font-medium mb-1">Department</label>
+                        <select 
+                        type="text"
+                        name="Department"
+                        placeholder="select Department"
+                        value={formData.department}
+                        onChange={handleChange}
+                        className="w-full border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
+                        required
+                        >
+                            <option value="">-- Select Department --</option>
+                            <option value="Cardiology"> Cardiology </option>
+                            <option value="Neurology"> Neurology </option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label className="block font-medium mb-1">Appoitment Date</label>
+                        <input 
+                        type="Date"
+                        name="AppointmentDate"
+                        placeholder="select your appointment date"
+                        value={formData.appointmentDate}
+                        onChange={handleChange}
+                        className="w-full border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"/>
+                    </div>
+
+                    <div>
+                        <label className="block font-medium mb-1">Appoitment Time</label>
+                        <input 
+                        type="Time"
+                        name="AppointmentTime"
+                        placeholder="select your appointment time"
+                        value={formData.appointmentTime}
+                        onChange={handleChange}
+                        className="w-full border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"/>
+                    </div>
+
+                    <button
+                    type="submit"
+                    className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+                    >
+                        Schedule Appointment
+                        
+                    </button>
 
                     <div>
                         
