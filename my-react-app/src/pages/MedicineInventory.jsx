@@ -14,19 +14,40 @@ function MedicineInventory() {
     setMedicine({ ...medicine, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("Medicine Added:", medicine);
+    try {
+      const response = await fetch("http://localhost:8080/medicines", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...medicine,
+          quantity: Number(medicine.quantity),
+          price: Number(medicine.price),
+        }),
+      });
 
-    // reset form
-    setMedicine({
-      name: "",
-      category: "",
-      quantity: "",
-      price: "",
-      expiryDate: "",
-    });
+      if (!response.ok) {
+        throw new Error("Failed to add medicine");
+      }
+
+      const savedMedicine = await response.json();
+      console.log("Saved:", savedMedicine);
+
+      // reset form
+      setMedicine({
+        name: "",
+        category: "",
+        quantity: "",
+        price: "",
+        expiryDate: "",
+      });
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
