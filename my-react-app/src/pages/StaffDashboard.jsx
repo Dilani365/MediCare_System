@@ -54,6 +54,7 @@ function StaffDashboard() {
       description: "Manage medication and prescriptions",
       borderColor: "border-indigo-600",
       textColor: "text-indigo-600",
+      link: "/Medicine",
     },
     {
       title: "Hospital Overview",
