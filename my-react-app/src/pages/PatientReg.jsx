@@ -6,9 +6,44 @@ function PatientReg() {
   const [date, setDate] = useState("");
   const [CurrentMeditation, setCurrentMeditation] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setRegistration({ ...registration, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(`Name: ${name}\nEmail: ${NIC}\nDOB: ${date}\nCurrent Meditation: ${CurrentMeditation}`);
+
+    try {
+      const response = await fetch("http://localhost:8080/registration", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...registration,
+          quantity: Number(registration.quantity),
+          price: Number(registration.price),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to add medicine");
+      }
+
+      const savedMedicine = await response.json();
+      console.log("Saved:", savedMedicine);
+
+      // reset form
+      setRegistration({
+        name: "",
+        NIC: "",
+        date: "",
+        CurrentMeditation: "",       
+      });
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -35,7 +70,7 @@ function PatientReg() {
           <div>
             <label className="block mb-1 font-medium">Identity Number:</label>
             <input
-              type="email"
+              type="text"
               placeholder="Enter your NIC"
               value={NIC}
               onChange={(e) => setNIC(e.target.value)}
