@@ -71,7 +71,7 @@ function Appointment(){
                         <label className="block font-medium mb-1">Doctor</label>
                         <select 
                         type="text"
-                        name="Doctor"
+                        name="doctor"
                         placeholder="select Doctor"
                         value={formData.doctor}
                         onChange={handleChange}
@@ -89,7 +89,7 @@ function Appointment(){
                         <label className="block font-medium mb-1">Department</label>
                         <select 
                         type="text"
-                        name="Department"
+                        name="department"
                         placeholder="select Department"
                         value={formData.department}
                         onChange={handleChange}
@@ -106,7 +106,7 @@ function Appointment(){
                         <label className="block font-medium mb-1">Appoitment Date</label>
                         <input 
                         type="Date"
-                        name="AppointmentDate"
+                        name="appointmentDate"
                         placeholder="select your appointment date"
                         value={formData.appointmentDate}
                         onChange={handleChange}
@@ -117,7 +117,7 @@ function Appointment(){
                         <label className="block font-medium mb-1">Appoitment Time</label>
                         <input 
                         type="Time"
-                        name="AppointmentTime"
+                        name="appointmentTime"
                         placeholder="select your appointment time"
                         value={formData.appointmentTime}
                         onChange={handleChange}

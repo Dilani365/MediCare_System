@@ -3,7 +3,7 @@ import { useState } from "react";
 function PatientReg() {
   const [name, setName] = useState("");
   const [NIC, setNIC] = useState("");
-  const [date, setDate] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState("");
   const [CurrentMeditation, setCurrentMeditation] = useState("");
 
   const handleChange = (e) => {
@@ -20,29 +20,24 @@ function PatientReg() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          ...registration,
-          quantity: Number(registration.quantity),
-          price: Number(registration.price),
-        }),
+        body: JSON.stringify(formData),
       });
 
       if (!response.ok) {
-        throw new Error("Failed to add medicine");
+        throw new Error("Failed to register patient");
       }
 
-      const savedMedicine = await response.json();
-      console.log("Saved:", savedMedicine);
+      alert("Patient registered successfully");
 
-      // reset form
       setRegistration({
         name: "",
         NIC: "",
-        date: "",
-        CurrentMeditation: "",       
+        dateOfBirth: "",
+        currentMeditation: "",
       });
     } catch (error) {
-      console.error("Error:", error);
+      console.error(error);
+      alert("Error occurred");
     }
   };
 
@@ -82,8 +77,8 @@ function PatientReg() {
             <label className="block mb-1 font-medium">Date of Birth:</label>
             <input
               type="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
+              value={dateOfBirth}
+              onChange={(e) => setDateOfBirth(e.target.value)}
               className="w-full border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
             />
           </div>
